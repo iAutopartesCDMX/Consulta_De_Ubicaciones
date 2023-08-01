@@ -1,0 +1,254 @@
+:root {
+    --primario: #9C27B0;
+    --primarioOscuro: #89119D;
+    --secundario: #FFCE00;
+    --secundarioOscuro: rgb(233, 187, 2);
+    --blanco: #FFF;
+    --negro: #000;
+
+    --rojo-mariana: #E4121E;
+    --rojo-mariana-2: #c32341;
+    --azul-mariana: #004AAD;
+    --azul-mariana-claro: #4F7DCF;
+
+    --claro-up-1: rgb(213, 190, 136);
+    --claro-up-2: rgb(190, 168, 116);
+    --claro-up-3: #F7F2EC;
+
+    --gris: #757575;
+    --gris-claro: #EEEEEE;
+
+    --fuentePrincipal: 'Staatliches', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; 
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/** Globales **/
+body {
+    background-color: var(--blanco);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco);
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+h1, h2, h3 {
+    text-align: center;
+    color: var(--azul-mariana);
+    font-family: var(--fuentePrincipal);
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.4rem;
+}
+
+/** Header **/
+.header {
+    display: flex;
+    justify-content: center;
+}
+.header__logo {
+    margin: 3rem 0;
+}
+@media (min-width: 760px) {
+    .header__logo{
+        max-width: 60rem;
+        margin: 0 auto;
+    }
+     
+} 
+
+@media (min-width: 480px) {
+    .header__logo{
+        padding: 0 4rem;
+    }
+     
+} 
+/** Footer **/
+.footer {
+    background-color: var(--rojo-mariana);
+    padding: 1rem 0;
+    margin-top: 2rem;
+    bottom: 0px;
+    width: 100%;
+    position: fixed; 
+}
+.footer__texto {
+    font-family: var(--fuentePrincipal);
+    text-align: center;
+    font-size: 2.2rem;
+}
+/** Navegacion **/
+.navegacion {
+    background-color: var(--azul-mariana);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem; 
+}
+.navegacion__enlace {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3rem;
+}
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: var(--rojo-mariana);
+}
+
+/** Grid **/
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+/** Formulario **/
+.formulario {
+    display: grid;
+    gap: 2rem;
+}
+
+@media (min-width: 440px) {
+    .centrar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    } 
+    .formulario__submit {
+        margin-top: 2rem;
+    }
+
+} 
+@media (min-width: 760px) {
+    .centrar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+} 
+
+
+.formulario__campo {
+   border: 1rem solid var(--gris);
+   background-color: transparent;
+   color: var(--negro);
+   font-size: 2rem;
+   font-family: Arial, Helvetica, sans-serif;
+   padding: 1rem;
+   appearance: none;
+}
+.formulario__submit {
+    background-color: var(--gris-claro);
+    border: #000;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    padding: 2rem;
+    transition: background-color .3s ease;
+    grid-column: 1 / 3;
+}
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: var(--gris);
+}
+
+
+/*MODAL RECHAZAR ==> BANDEJA
+ https://www.youtube.com/watch?v=Iaw9rFopXPY */
+ .modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s .9s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+  }
+  .modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .3s;
+    --transform: translateY(0);
+    --transition: transform .3s .3s;
+  }
+  .modal__container{
+    margin: auto;
+    width: 40%;
+    max-width: 1000px;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition:var(--transition);
+  }
+  .modal__title{
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+  .modal__paragraph{
+    margin-bottom: 1rem;
+  }
+  .modal__close{
+    text-decoration: none;
+    color: var(--blanco);
+    background-color: var(--rojo-up);
+    padding: 1em 3em;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+  }
+  .modal__close:hover{
+    color: var(--rojo-up);
+    background-color: #fff;
+  }
+  .modal_x{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+  }
+  .modal_x:hover{
+    cursor: pointer;
+  }
