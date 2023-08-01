@@ -19,6 +19,7 @@
     --gris-claro: #EEEEEE;
 
     --fuentePrincipal: 'Staatliches', sans-serif;
+    --fuenteClaridad: 'Roboto', sans-serif;
 }
 
 html {
@@ -246,9 +247,12 @@ h3 {
   .modal__title{
     font-size: 2.5rem;
     font-weight: bold;
+    font-family: var(--fuenteClaridad);
   }
   .modal__paragraph{
     margin-bottom: 1rem;
+    color: var(--rojo-mariana);
+    font-family: var(--fuenteClaridad);
   }
   .modal__close{
     text-decoration: none;
