@@ -61,7 +61,7 @@ export const setupRegistros = (data) => {
 } else{
   console.log("No hay registros")
   ubicacion_despl.innerHTML = `
-  <h3 >¡No hay registros!</h3> 
+  <h3 >¡Comprueba tu conexión!</h3> 
   `;
   
 }
