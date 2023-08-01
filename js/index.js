@@ -13,6 +13,7 @@ const taskForm = document.getElementById("task-form");
 const ubicacion_despl = document.getElementById("ubicacion_despl"); //Espacio para colocar formulario
 const ubicacionesDB = await getDocs(collection(db, "ubicaciones")); //Para desplegar BD
 
+let paso = 0;
 
 export const setupRegistros = (data) => {
 
@@ -22,6 +23,8 @@ export const setupRegistros = (data) => {
 
     const task_sku = taskForm["task-sku"];
     const tasksku = task_sku.value
+    paso = 0
+    
 
     ubicacion_despl.innerHTML = "";
     data.forEach((doc) => {
@@ -33,24 +36,27 @@ export const setupRegistros = (data) => {
 
       /* REVISAR */
       if (tasksku == task.sku){
-      ubicacion_despl.innerHTML = ``;
-      try {
-        console.log("Desplegando registro nuevo");
-        ubicacion_despl.innerHTML += `
-        <h2 class="modal__title">La Ubicación de ${task.sku} es:</h2>
-        <h3 class="modal__paragraph" > ${task.ubi} </h3>
-        `;
-      } catch (error) {
-        console.log(error);
-      }
-    } else {
-      console.log("No existe")
-      ubicacion_despl.innerHTML = `
-      <h3 >No encontrado</h3> 
-  `;
-    }
+        paso = 1
+        ubicacion_despl.innerHTML = ``;
+        try {
+          console.log("Desplegando registro nuevo");
+          ubicacion_despl.innerHTML += `
+          <h2 class="modal__title">La Ubicación de ${task.sku} es:</h2>
+          <h3 class="modal__paragraph" > ${task.ubi} </h3>
+          `;
+        } catch (error) {
+          console.log(error);
+        }
+    } 
 
   });
+  if (paso == 0){
+    console.log("No existe")
+    ubicacion_despl.innerHTML = `
+    <h3 >No encontrado</h3> 
+  `;
+  }
+
   });
 } else{
   console.log("No hay registros")
@@ -74,7 +80,10 @@ closeModal.addEventListener('click', (e)=>{
   modal.classList.remove('modal--show');
 });
 
+
+
 /*BLOQUEAR CLICK DERECHO*/
+/*
 function disableIE() {
     if (document.all) {
         return false;
@@ -96,3 +105,4 @@ else {
     document.oncontextmenu = disableIE;
 }
 document.oncontextmenu=new Function("return false");
+*/
