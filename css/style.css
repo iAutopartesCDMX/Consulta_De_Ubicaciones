@@ -93,9 +93,9 @@ h3 {
     background-color: var(--rojo-mariana);
     padding: 1rem 0;
     margin-top: 2rem;
-    bottom: 0px;
+    bottom: -100px;
     width: 100%;
-    position: fixed; 
+    position: absolute; 
 }
 .footer__texto {
     font-family: var(--fuentePrincipal);
@@ -139,7 +139,7 @@ h3 {
     gap: 2rem;
 }
 
-@media (min-width: 440px) {
+@media (min-width: 300px) {
     .centrar {
         display: flex;
         align-items: center;
@@ -207,10 +207,11 @@ h3 {
     --transform: translateY(0);
     --transition: transform .3s .3s;
   }
-  .modal__container{
+
+  @media (min-width: 760px) {
+    .modal__container{
     margin: auto;
-    width: 40%;
-    max-width: 1000px;
+    max-width: 40%;
     max-height: 90%;
     background-color: #fff;
     border-radius: 6px;
@@ -221,7 +222,27 @@ h3 {
     grid-auto-columns: 100%;
     transform: var(--transform);
     transition:var(--transition);
-  }
+    }
+  } 
+  @media (min-width: 300px) {
+       .modal__container{
+        margin: auto;
+        width: 80%;
+        max-height: 90%;
+        background-color: #fff;
+        border-radius: 6px;
+        padding: 3em 2.5em;
+        display: grid;
+        gap: 1em;
+        place-items: center;
+        grid-auto-columns: 100%;
+        transform: var(--transform);
+        transition:var(--transition);
+        }
+  } 
+  
+
+
   .modal__title{
     font-size: 2.5rem;
     font-weight: bold;
