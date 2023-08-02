@@ -83,7 +83,7 @@ closeModal.addEventListener('click', (e)=>{
 
 
 /*BLOQUEAR CLICK DERECHO*/
-/*
+
 function disableIE() {
     if (document.all) {
         return false;
@@ -105,4 +105,3 @@ else {
     document.oncontextmenu = disableIE;
 }
 document.oncontextmenu=new Function("return false");
-*/
